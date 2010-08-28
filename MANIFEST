@@ -1,0 +1,15 @@
+Changes
+lib/PNI/GUI.pm
+lib/PNI/GUI/Canvas.pm
+lib/PNI/GUI/Canvas_item.pm
+lib/PNI/GUI/Canvas_item/Node.pm
+lib/PNI/GUI/Canvas_item/Node_selector.pm
+lib/PNI/GUI/Canvas_item/Text.pm
+lib/PNI/GUI/Window.pm
+Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+pnigui.pl
+README
+t/PNI-GUI.t
+META.yml                                 Module meta-data (added by MakeMaker)
