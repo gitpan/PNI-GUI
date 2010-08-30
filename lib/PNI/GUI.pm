@@ -2,7 +2,7 @@ package PNI::GUI;
 
 use Mouse;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use Tk;
 use PNI;
@@ -31,7 +31,7 @@ PNI::GUI - Perl Node Interface GUI
 use PNI::GUI;
 
 PNI::GUI::start_up;
-# or better, just call pnigui.pl
+# or better, just call pnigui.pl from commandline.
 
 =head1 DESCRIPTION
 
