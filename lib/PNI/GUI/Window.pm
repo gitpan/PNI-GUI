@@ -38,11 +38,11 @@ sub _print_keysym {
     my $e = $widget->XEvent;
     my ( $keysym_text, $keysym_decimal ) = ( $e->K, $e->N );
     my ( $X, $Y, $x, $y ) = ( $e->X, $e->Y, $e->x, $e->y );
-    print "Character = $keysym_decimal, keysym = $keysym_text"
-      . " at abs=($X,$Y), rel=($x,$y).\n";
+#    print "Character = $keysym_decimal, keysym = $keysym_text"
+#      . " at abs=($X,$Y), rel=($x,$y).\n";
 
-      if( $keysym_text eq 'i' ){
-      print "\n\n\ngot i\n\n\n";
+      if( $keysym_text eq 't' ){
+      print "\n\n\ngot t\n\n\n";
       }
 }    # end _print_keysym
 

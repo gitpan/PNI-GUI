@@ -9,7 +9,7 @@ our $VERSION = $PNI::GUI::VERSION;
 
 #TODO aggiusta sto tapullo
 my $NODE = {};
-
+use Tk;
 has 'tk_main_window' => (
     is       => 'ro',
     isa      => 'Tk::MainWindow',
@@ -58,15 +58,19 @@ sub _store_last_xy {
     my $self = shift;
     $self->last_x( $self->tk_canvas()->XEvent->x );
     $self->last_y( $self->tk_canvas()->XEvent->y );
+
+    #print $self->last_x, ' ', $self->last_y, "\n";
 }
 
 sub _store_current_id {
-    my $self      = shift;
-    my $tk_canvas = $self->tk_canvas();
-    my @current   = $tk_canvas->find( 'withtag', 'current' );
+    my $self = shift;
+
+    # if it is a canvas item, store the current_id
+    # otherwise store a zero id
+    my @current = $self->tk_canvas->find( 'withtag', 'current' );
     if (@current) {
+        #print $tk_canvas->type($_) , " $_\n" for @current;
         $self->current_id( $current[0] );
-        #my @tags = $tk_canvas->gettags( $self->current_id );
     }
     else {
         $self->current_id(0);
@@ -74,6 +78,8 @@ sub _store_current_id {
 }
 
 sub _click {
+
+    #print 'got _click ', "\n";
     my $tk_canvas = shift;
     my $self      = shift;
     $self->_store_last_xy();
@@ -84,11 +90,17 @@ sub _double_click {
     my $tk_canvas = shift;
     my $self      = shift;
 
+    $self->_store_last_xy();
+    $self->_store_current_id();
+
+    #print 'got _double_click ', $self->current_id, "\n";
     if ( $self->current_id ) {
+
         # checking if it was clicked an item, then i do nothing
         # cause i delegate to it the binding callout.
     }
     else {
+
         # if no canvas item was clicked i open a node selector.
         new PNI::GUI::Canvas_item::Node_selector( pni_gui_canvas => $self );
 

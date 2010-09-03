@@ -16,7 +16,7 @@ has 'tk_tree' => (
     lazy    => 1,
     default => sub {
         my $self    = shift;
-        my $tk_tree = $self->pni_gui_canvas()->tk_canvas()->Tree(
+        my $tk_tree = $self->pni_gui_canvas->tk_canvas->Tree(
             -height => 10,
             -width  => 40
         );
@@ -45,7 +45,7 @@ sub BUILD {
         }
     }
 
-    my $tk_canvas_id = $self->pni_gui_canvas()->tk_canvas()->createWindow(
+    my $tk_canvas_id = $self->pni_gui_canvas->tk_canvas->createWindow(
         $self->pni_gui_canvas()->last_x(),
         $self->pni_gui_canvas()->last_y(),
         -window => $self->tk_tree()
@@ -62,6 +62,7 @@ sub _create_node {
     $node_path =~ s/\./::/g;
     $self->pni_gui_canvas()->create_node($node_path);
     $self->tk_tree()->destroy();
+    $self->pni_gui_canvas->tk_canvas->delete( $self->tk_canvas_id );
 }
 
 1;

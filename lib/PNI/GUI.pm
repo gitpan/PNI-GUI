@@ -2,7 +2,7 @@ package PNI::GUI;
 
 use Mouse;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Tk;
 use PNI;
@@ -11,7 +11,7 @@ use PNI::GUI::Window;
 #use File::Spec;
 
 # this is a hook to PNI so Tk::Mainloop and PNI::LOOP can coexist.
-PNI::NODE 'Jolly', task => sub { &DoOneEvent for ( 0 .. 10 ) };
+PNI::NODE 'Jolly', task => sub { &DoOneEvent for ( 0 .. 50 ) };
 
 sub start_up {
     new PNI::GUI::Window;
@@ -31,7 +31,10 @@ PNI::GUI - Perl Node Interface GUI
 use PNI::GUI;
 
 PNI::GUI::start_up;
-# or better, just call pnigui.pl from commandline.
+
+# or better, just call pnigui.pl from commandline
+#
+# or even perl -MPNI::GUI::STARTUP
 
 =head1 DESCRIPTION
 
