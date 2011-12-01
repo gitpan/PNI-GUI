@@ -1,16 +1,14 @@
-use 5.8.8;
+use strict;
 use ExtUtils::MakeMaker;
 
-WriteMakefile(
-    NAME              => 'PNI::GUI',
-    VERSION_FROM      => 'lib/PNI/GUI.pm',
-    EXE_FILES => [ 'pnigui.pl' ],
-    PREREQ_PM         => {
-        Mouse => 0,
-        PNI => 0.05,
-        Tk => 0
-    },
-    ($] >= 5.005 ?
-      (ABSTRACT_FROM  => 'lib/PNI/GUI.pm',
-       AUTHOR         => 'G. Casati <fibo@cpan.org>') : ()),
-);
+WriteMakefile
+  AUTHOR    => 'G. Casati <fibo@cpan.org>',
+  EXE_FILES => ['script/pnigui'],
+  NAME      => 'PNI-GUI',
+  PREREQ_PM => {
+    'File::Basename' => 0,
+    'File::Spec'     => 0,
+    'Mojolicious'    => '2.0',
+  },
+  VERSION_FROM => 'lib/PNI/GUI.pm',
+

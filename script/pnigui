@@ -1,0 +1,9 @@
+#!/usr/bin/env perl
+use Mojo::Base -strict;
+
+use Mojolicious::Commands;
+
+$ENV{MOJO_APP} ||= 'PNI::GUI';
+
+Mojolicious::Commands->start;
+

@@ -1,6 +1,0 @@
-Revision history for Perl extension PNI::GUI.
-
-0.01  20100529
-	- original version; created by h2xs 1.23 with options
-		-XA -n PNI::GUI
-

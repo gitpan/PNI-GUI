@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name:               PNI-GUI
-version:            0.04
-abstract:           Perl Node Interface GUI
+version:            0.0.0
+abstract:           ~
 author:
     - G. Casati <fibo@cpan.org>
 license:            unknown
@@ -11,14 +11,14 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    Mouse:  0
-    PNI:    0.05
-    Tk:     0
+    File::Basename:  0
+    File::Spec:      0
+    Mojolicious:     2.0
 no_index:
     directory:
         - t
         - inc
-generated_by:       ExtUtils::MakeMaker version 6.56
+generated_by:       ExtUtils::MakeMaker version 6.55_02
 meta-spec:
     url:      http://module-build.sourceforge.net/META-spec-v1.4.html
     version:  1.4

@@ -1,19 +1,9 @@
-Changes
 lib/PNI/GUI.pm
-lib/PNI/GUI/Canvas.pm
-lib/PNI/GUI/Canvas_item.pm
-lib/PNI/GUI/Canvas_item/Link.pm
-lib/PNI/GUI/Canvas_item/Node.pm
-lib/PNI/GUI/Canvas_item/Node_input.pm
-lib/PNI/GUI/Canvas_item/Node_output.pm
-lib/PNI/GUI/Canvas_item/Node_selector.pm
-lib/PNI/GUI/Canvas_item/Text.pm
-lib/PNI/GUI/STARTUP.pm
-lib/PNI/GUI/Window.pm
+lib/PNI/GUI/public/index.html
+lib/PNI/GUI/templates/layouts/default.html.ep
 Makefile.PL
-MANIFEST
-MANIFEST.SKIP
-pnigui.pl
+MANIFEST			This list of files
 README
-t/PNI-GUI.t
+script/pnigui
+t/__use_ok.t
 META.yml                                 Module meta-data (added by MakeMaker)
