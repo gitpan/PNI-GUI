@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PNI::GUI</title>
+<style type="text/css">
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+#container {
+    height: 100%;
+}
+#leftCol {
+    width: 14em;
+}
+.<%= $dojo_theme %> .MainWindowLayout .edgePanel {
+    background-color: #d0e9fc;
+}
+#viewsChart {
+width: 550px;
+height: 550px;
+}
+
+</style>
+<link
+  rel="stylesheet"
+  href="http://ajax.googleapis.com/ajax/libs/dojo/<%= $dojo_version %>/dijit/themes/<%= $dojo_theme %>/<%= $dojo_theme %>.css"
+/>
+<script 
+  src="http://ajax.googleapis.com/ajax/libs/dojo/<%= $dojo_version %>/dojo/dojo.xd.js"
+  data-dojo-config="<%= $dojo_config %>"
+></script>
+<script type="text/javascript">
+  dojo.require("dojo.parser");
+  dojo.require("dijit.layout.BorderContainer");
+  dojo.require("dijit.layout.TabContainer");
+  dojo.require("dijit.layout.ContentPane");
+</script>
+<script>
+// Require the dojox.gfx resource
+dojo.require("dojox.gfx");
+
+// Create a ready event
+dojo.ready(function(){
+
+dojox.gfx.renderer = "canvas";
+
+// Create a GFX surface
+// Arguments:  node, width, height
+surface = dojox.gfx.createSurface("surfaceElement",400,400);
+
+// Create a circle with a set "blue" color
+surface.createCircle({ cx: 50, cy: 50, rx:50, r:25 }).setFill("blue");
+
+// Crate a circle with a set hex color
+surface.createCircle({ cx: 300, cy: 300, rx:50, r:25 }).setFill("#f00");
+
+// Create a circle with a linear gradient
+surface.createRect({x: 180, y: 40, width: 200, height: 100 }).
+setFill({ type:"linear", 
+x1:0,                           
+y1:0,   //x: 0=>0, consistent gradient horizontally
+x2:0,   //y: 0=>420, changing gradient vertically
+y2:420,                         
+colors: [
+{ offset: 0,   color: "#003b80" },
+{ offset: 0.5, color: "#0072e5" },
+{ offset: 1,   color: "#4ea1fc" }
+]
+});
+
+// Create a circle with a radial gradient
+surface.createEllipse({
+cx: 120,
+cy: 260,
+rx: 100,
+ry: 100
+}).setFill({
+type: "radial",
+cx: 150,
+cy: 200,
+colors: [
+{ offset: 0,   color: "#4ea1fc" },
+{ offset: 0.5, color: "#0072e5" },
+{ offset: 1,   color: "#003b80" }
+]
+});
+
+});
+
+</script>
+
+</head>
+<body class="<%= $dojo_theme %>">
+
+<div id="container" class="MainWindowLayout" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design: 'headline'">
+<div class="centerPanel" data-dojo-type="dijit.layout.TabContainer" data-dojo-props="region: 'center', tabPosition: 'bottom'">
+<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'Group 1'">
+<div id="surfaceElement" style="border:1px solid #ccc;width:100%;height:100%;"></div>
+</div>
+<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'Group Two'">
+<h4>Group 2 Content</h4>
+</div>
+<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'Long Tab Label for this One'">
+<h4>Group 3 Content</h4>
+</div>
+</div>
+<div class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'top'">Header content (top)</div>
+<div id="leftCol" class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'left', splitter: true">Sidebar content (left)</div>
+</div>
+
+</body>
+</html>

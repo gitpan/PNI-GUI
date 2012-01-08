@@ -1,0 +1,14 @@
+#!/usr/bin/env perl
+use Mojo::Base -strict;
+
+use File::Basename 'dirname';
+use File::Spec;
+use Mojolicious::Commands;
+
+use lib join '/', File::Spec->splitdir(dirname(__FILE__)), 'lib';
+use lib join '/', File::Spec->splitdir(dirname(__FILE__)), '..', 'lib';
+
+$ENV{MOJO_APP} ||= 'PNI::GUI';
+
+Mojolicious::Commands->start;
+

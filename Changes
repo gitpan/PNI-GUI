@@ -1,0 +1,10 @@
+Revision history for Perl Node Interface GUI.
+
+0.01.0 2012-xx-xx
+    - Added MainWindow
+    - Added not_found
+    - Added Dojo framework
+
+0.0.0 2011-12-02
+    - Basic structure
+
