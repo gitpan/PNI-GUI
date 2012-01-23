@@ -1,6 +1,10 @@
 Revision history for Perl Node Interface GUI.
 
-0.01.0 2012-xx-xx
+0.02.0 2012-01-24
+    - Added PNIGUI_SECRET env
+    - Added Raphael js lib, first experiments ... looks very good!
+
+0.01.0 2012-01-09
     - Added MainWindow
     - Added not_found
     - Added Dojo framework

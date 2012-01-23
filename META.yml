@@ -21,4 +21,4 @@ requires:
   File::Basename: 0
   File::Spec: 0
   Mojolicious: 2.42
-version: v0.01.0
+version: v0.02.0

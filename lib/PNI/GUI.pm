@@ -4,27 +4,26 @@ use Mojo::Base 'Mojolicious';
 use File::Basename 'dirname';
 use File::Spec;
 
-our $VERSION = '0.01.0';
+our $VERSION = '0.02.0';
 
 sub startup {
     my $self = shift;
-    $self->secret('xD');
     my $r    = $self->routes;
+
+    $self->secret( $ENV{PNIGUI_SECRET} );
 
     $self->home->parse( File::Spec->catdir( dirname(__FILE__), 'GUI' ) );
     $self->static->root( $self->home->rel_dir('public') );
     $self->renderer->root( $self->home->rel_dir('templates') );
 
-    $r->route('/')->via('GET')->to(
-        cb => sub {
-            shift->render(
-                'MainWindow',
-                dojo_config  => 'isDebug: true,parseOnLoad: true',
-                dojo_theme   => 'tundra',
-                dojo_version => '1.6',
-            );
-        }
-    );
+    $r->get('/')->to( cb => sub { shift->render('MainWindow'); } );
+    $r->get('/root')->to('root#to_json');
+    $r->get('/edge/:id')->to('edge#to_json');
+    $r->get('/node/:id')->to('node#to_json');
+    $r->get('/scenario/:id')->to('scenario#to_json');
+    $r->post('/scenario/:id/add_node')->to('scenario#add_node');
+    $r->post('/scenario/:id/add_edge')->to('scenario#add_edge');
+    $r->post('/scenario/:id/add_comment')->to('scenario#add_comment');
 
 }
 
@@ -43,7 +42,7 @@ PNI::GUI - HTML5 based GUI for Perl Node Interface
 
 =head2 MOJO_MODE
 
-=head2 MOJO_SECRET
+=head2 PNIGUI_SECRET
 
 =head1 SEE ALSO
 

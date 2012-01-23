@@ -1,5 +1,12 @@
 Changes
 lib/PNI/GUI.pm
+lib/PNI/GUI/public/jquery-1.7.1.min.js
+lib/PNI/GUI/public/onload.js
+lib/PNI/GUI/public/pni.js
+lib/PNI/GUI/public/raphael-min.js
+lib/PNI/GUI/public/reset.css
+lib/PNI/GUI/Root.pm
+lib/PNI/GUI/Scenario.pm
 lib/PNI/GUI/templates/layouts/default.html.ep
 lib/PNI/GUI/templates/MainWindow.html.ep
 lib/PNI/GUI/templates/not_found.html.ep
